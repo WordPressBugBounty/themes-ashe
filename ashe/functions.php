@@ -354,7 +354,7 @@ add_action( 'widgets_init', 'ashe_widgets_init' );
 if ( ! function_exists( 'ashe_add_image_sizes' ) ) {
 	function ashe_add_image_sizes() {
 		add_image_size( 'ashe-slider-full-thumbnail', 1080, 540, true );
-		add_image_size( 'ashe-full-thumbnail', 1140, 9999, true );
+		add_image_size( 'ashe-full-thumbnail', 1140, 0, true );
 		add_image_size( 'ashe-list-thumbnail', 300, 300, true );
 		add_image_size( 'ashe-grid-thumbnail', 500, 330, true );
 		add_image_size( 'ashe-single-navigation', 75, 75, true );	
