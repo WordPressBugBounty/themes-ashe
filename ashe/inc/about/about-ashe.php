@@ -159,7 +159,13 @@ function ashe_about_page_output() {
 					<p>Due to the high demand of our trusted users we designed a <strong>FREE</strong>, <strong>Lightning-fast</strong> and <strong>Easy to use</strong> WordPress theme with built-in Header/Footer Builder.</p>
 					<p>You can try it out for free right now, just click the button below to get started.</p>
 
-					<a class="button button-primary newsx-theme-install">Install News Magazine X Theme</a>
+					<div class="newsx-theme-buttons">
+						<a class="button button-primary newsx-theme-install">Install News Magazine X Theme</a>
+						<a class="button button-primary" target="_blank" href="https://news-magazine-x-free.wp-royal-themes.com/demo/?ref=ashe-free-dash-predefined-styles">
+							<span>Theme Demo Preview</span>
+							<span class="dashicons dashicons-external"></span>
+						</a>
+					</div>
 				</div>
 			</div>
 
@@ -681,14 +687,18 @@ function ashe_enqueue_about_page_scripts($hook) {
 		return;
 	}
 
+	// Get the current version of the theme
+	$theme_data = wp_get_theme();
+	$theme_version = $theme_data->get('Version');
+
 	// enqueue CSS
-	wp_enqueue_style( 'ashe-about-page-css', get_theme_file_uri( '/inc/about/css/about-ashe-page.css' ), array(), '2.252' );
+	wp_enqueue_style( 'ashe-about-page-css', get_theme_file_uri( '/inc/about/css/about-ashe-page.css' ), array(), $theme_version );
 
 	// Demo Import
 	wp_enqueue_script( 'plugin-install' );
 	wp_enqueue_script( 'updates' );
 
-	wp_enqueue_script( 'ashe-about-page-js', get_theme_file_uri( '/inc/about/js/about-ashe-page.js' ), array(), '2.252' );
+	wp_enqueue_script( 'ashe-about-page-js', get_theme_file_uri( '/inc/about/js/about-ashe-page.js' ), array(), $theme_version );
 	wp_localize_script('ashe-about-page-js', 'ashe_about', array(
         'nonce' => wp_create_nonce('ashe_about_nonce')
     ));
