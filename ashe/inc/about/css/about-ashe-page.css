@@ -428,6 +428,11 @@ html {
 	margin-right: 108px;
 }
 
+.three-columns-wrap .plugin-card .desc>p {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 .three-columns-wrap .plugin-card .plugin-icon {
 	width: 90px;
 	height: 90px;
