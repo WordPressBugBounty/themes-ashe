@@ -76,6 +76,9 @@ function ashe_setup() {
 
 	// Add Image Sizes
 	ashe_add_image_sizes();
+	
+	// Appearance Tools
+	add_theme_support( 'appearance-tools' );
 }
 add_action( 'after_setup_theme', 'ashe_setup' );
 
