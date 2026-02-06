@@ -17,10 +17,22 @@ jQuery( document ).ready( function ($) {
             wp.updates.installPlugin({
                 slug: 'ashe-extra',
                 success: function(){
-                    $.post(ajaxurl, data, function(response) {
-                        $('#ashe-demo-content-inst').html( 'Redirecting...' );
-                        window.location.replace( baseURL + '/admin.php?page=ashe-extra' );
-                    })
+                    $('#ashe-demo-content-inst').html( 'Installing Royal Backup Reset...' );
+                    wp.updates.installPlugin({
+                        slug: 'royal-backup-reset',
+                        success: function(){
+                            $.post(ajaxurl, data, function(response) {
+                                $('#ashe-demo-content-inst').html( 'Redirecting...' );
+                                window.location.replace( baseURL + '/admin.php?page=ashe-extra' );
+                            })
+                        },
+                        error: function(){
+                            $.post(ajaxurl, data, function(response) {
+                                $('#ashe-demo-content-inst').html( 'Redirecting...' );
+                                window.location.replace( baseURL + '/admin.php?page=ashe-extra' );
+                            })
+                        }
+                    });
                 }
             });
 

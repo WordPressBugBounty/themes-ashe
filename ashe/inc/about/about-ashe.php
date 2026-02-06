@@ -648,13 +648,14 @@ function ashe_call_plugin_api( $slug ) {
 }
 
 
-// Install/Activate Demo Import Plugin 
+// Install/Activate Demo Import Plugin
 function ashe_plugin_auto_activation() {
 
 	// Get the list of currently active plugins (Most likely an empty array)
 	$active_plugins = (array) get_option( 'active_plugins', array() );
 
 	array_push( $active_plugins, 'ashe-extra/ashe-extra.php' );
+	array_push( $active_plugins, 'royal-backup-reset/royal-backup-reset.php' );
 
 	// Set the new plugin list in WordPress
 	update_option( 'active_plugins', $active_plugins );
