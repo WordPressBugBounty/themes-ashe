@@ -314,58 +314,6 @@ function ashe_customize_register( $wp_customize ) {
 		 *
 		 * @since unknown
 		 */
-
-	class Ashe_Feature_Request_Section extends WP_Customize_Section {
-		/**
-		 * Set type.
-		 *
-		 * @var public $type
-		 */
-		public $type = 'ashe_new_features';
-
-		/**
-		 * Set pro URL.
-		 *
-		 * @var public $pro_url
-		 */
-		public $feature_url = '';
-
-		/**
-		 * Set pro text.
-		 *
-		 * @var public $pro_text
-		 */
-		public $feature_text = '';
-
-		/**
-		 * Set ID.
-		 *
-		 * @var public $id
-		 */
-		public $id = '';
-
-		/**
-		 * Send variables to json.
-		 */
-		public function json() {
-			$json = parent::json();
-			$json['feature_text'] = $this->feature_text;
-			$json['feature_url']  = esc_url( $this->feature_url );
-			$json['id'] = $this->id;
-			return $json;
-		}
-
-		/**
-		 * Render content.
-		 */
-		protected function render_template() {
-			?>
-			<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand control-section-default">
-				<h3 class="accordion-section-title"><a href="{{{ data.feature_url }}}" target="_blank"><?php echo esc_html__('Request a New Feature', 'ashe') ?></a></h3>
-			</li>
-			<?php
-		}
-	}
 	
 
 	// Pro Version Links
@@ -461,28 +409,6 @@ function ashe_customize_register( $wp_customize ) {
 				'type'		=> 'pro_links',
 				'label' 	=> '',
 				'priority'	=> 1
-			)
-		)
-	);
-
-/*
-** Feature Request =====
-*/
-
-	if ( method_exists( $wp_customize, 'register_section_type' ) ) {
-		$wp_customize->register_section_type( 'Ashe_Feature_Request_Section' );
-	}
-
-	$wp_customize->add_section(
-		new Ashe_Feature_Request_Section(
-			$wp_customize,
-			'ashe_feature_request_section',
-			array(
-				'pro_text' => __( 'Request Feature', 'ashe' ),
-				'feature_url' => 'https://wp-royal-themes.frill.co/b/6m56290z/feature-ideas',
-				'capability' => 'edit_theme_options',
-				'priority' => 1,
-				'type' => 'ashe_new_features',
 			)
 		)
 	);
