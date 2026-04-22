@@ -651,6 +651,12 @@ function ashe_call_plugin_api( $slug ) {
 // Install/Activate Demo Import Plugin
 function ashe_plugin_auto_activation() {
 
+	check_ajax_referer( 'ashe_about_nonce', 'nonce' );
+
+	if ( ! current_user_can( 'activate_plugins' ) ) {
+		wp_send_json_error( array( 'message' => esc_html__( 'Permission denied.', 'ashe' ) ), 403 );
+	}
+
 	// Get the list of currently active plugins (Most likely an empty array)
 	$active_plugins = (array) get_option( 'active_plugins', array() );
 
@@ -659,6 +665,8 @@ function ashe_plugin_auto_activation() {
 
 	// Set the new plugin list in WordPress
 	update_option( 'active_plugins', $active_plugins );
+
+	wp_send_json_success();
 
 }
 add_action( 'wp_ajax_ashe_plugin_auto_activation', 'ashe_plugin_auto_activation' );

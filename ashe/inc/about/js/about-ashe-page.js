@@ -11,7 +11,8 @@ jQuery( document ).ready( function ($) {
             $('#ashe-demo-content-inst').html( 'Installing Import Plugin...' );
 
             var data = {
-                action: 'ashe_plugin_auto_activation'
+                action: 'ashe_plugin_auto_activation',
+                nonce: ashe_about.nonce
             };
 
             wp.updates.installPlugin({
@@ -45,7 +46,8 @@ jQuery( document ).ready( function ($) {
             $('#ashe-demo-content-act').html( 'Installing Import Plugin...' );
 
             var data = {
-                action: 'ashe_plugin_auto_activation'
+                action: 'ashe_plugin_auto_activation',
+                nonce: ashe_about.nonce
             };
 
             $.post(ajaxurl, data, function(response) {
