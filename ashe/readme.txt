@@ -2,8 +2,8 @@
 
 Author: Royal-Flush wp-royal-themes.com
 Requires at least: WordPress 4.7+
-Tested up to: WordPress 7.03
-Version: 2.273
+Tested up to: WordPress 7.1
+Version: 2.274
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 Tags: blog, e-commerce, food-and-drink, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, custom-logo, featured-images, footer-widgets, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -59,11 +59,6 @@ Sticky-kit, Leaf Corcoran 2015
 Licenses: WTFPL
 Source: http://leafo.net/sticky-kit/
 
-Image Credits (screenshot.png):
-License: https://pixabay.com/en/service/terms/#usage
-
-Header Image, Copyright StockSnap
-https://pixabay.com/en/trees-plants-woods-fence-park-2561373/
 
 First Post, Copyright rawpixel
 https://pxhere.com/en/photo/1389877
